@@ -16,9 +16,9 @@ router.get('/', async function(request, response, next) {
 
         const results = await booksService.getBooks(searchText, offset, maxResults);
         return response.json({totalItems: results.totalItems, books: results.books})
-    } catch (e) {
-        console.log(e)
-        response.err(e)
+    } catch (err) {
+        console.log(err)
+        next(err)
     }
 });
 
