@@ -8,14 +8,15 @@ const googleBooksBaseUrl = 'https://www.googleapis.com/books/v1';
  * https://developers.google.com/books/docs/v1/reference/volumes/list
  *
  * @param query - String
- * @param offset - Number
+ * @param offset (dependent on pageNumber and maxResults) - Number
+ * @param maxResults - Number
  * @return books - Object
  */
 function getBooksFromGoogleBooks(query, offset, maxResults) {
     const queryString =
         `q=intitle:${query}&startIndex=${offset}&maxResults=${maxResults}&printType=books&langRestrict=en`
 
-    return axios.get(`${googleBooksBaseUrl}/volumes?${queryString}`)
+    return axios.get(encodeURI(`${googleBooksBaseUrl}/volumes?${queryString}`))
         .then(response => {
             const books = response.data.items.map(item => pickBookData(item))
             return {books: _.orderBy(books, 'title', 'asc'), totalItems: response.data.totalItems};
