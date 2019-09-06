@@ -13,7 +13,7 @@ const googleBooksBaseUrl = 'https://www.googleapis.com/books/v1';
  */
 function getBooksFromGoogleBooks(query, offset, maxResults) {
     const queryString =
-        `q=${query}&startIndex=${offset}&maxResults=${maxResults}&printType=books&field=title&langRestrict=en`
+        `q=intitle:${query}&startIndex=${offset}&maxResults=${maxResults}&printType=books&langRestrict=en`
 
     return axios.get(`${googleBooksBaseUrl}/volumes?${queryString}`)
         .then(response => {
