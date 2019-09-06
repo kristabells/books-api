@@ -1,37 +1,39 @@
 # Find a Book API
+
+A simple Node.js application utilizing the Google Books API to query book titles
+
+[Google Books API Reference](https://developers.google.com/books/docs/v1/reference/)
+
 ## Running the application
 
-`npm run "build API"`
+`npm run start`
+- The application is served up on [http://localhost:4000]()
+
+`npm run build`
 - Builds the application
 
-`npm run "start API"`
-- In environment config: `.env`, `APP_ENV=local`.  The application is served up on [http://localhost:4000]()
-
-`npm run "test API"`
-- Runs the application test suites
-
-`npm run "debug API"`
+`npm run debug`
 - Runs the application in debug mode
+
+`npm run test`
+- Runs the application test suites
 
 ## Dependencies
 
-#### [debug](https://github.com/visionmedia/debug)
-Debugging utility
-
-#### [dotenv](https://github.com/motdotla/dotenv)
-Loads environment variables
+#### [axios](https://github.com/axios/axios)
+Promise based HTTP client
 
 #### [express](https://github.com/expressjs/express)
 Web application server
 
-
-## Dev Dependencies
-
-#### [chai](https://github.com/chaijs/chai)
-TDD assertion framework
+#### [lodash](https://github.com/lodash/lodash)
+Utility library
 
 #### [mocha](https://github.com/mochajs/mocha)
 Test framework
+
+#### [should](https://github.com/shouldjs/should.js)
+BDD assertion library
 
 #### [supertest](https://github.com/visionmedia/supertest)
 Testing HTTP

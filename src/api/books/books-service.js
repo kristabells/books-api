@@ -33,10 +33,11 @@ function getBooksFromGoogleBooks(query, offset, maxResults) {
  */
 function pickBookData(data) {
     const book = _.pick(data.volumeInfo, [
-        'id', 'title', 'authors'
+        'title', 'authors'
     ]);
 
     _.extend(book, {
+        id: data.id,
         thumbnail: _.get(data, 'volumeInfo.imageLinks.thumbnail'),
     });
 
@@ -44,5 +45,6 @@ function pickBookData(data) {
 }
 
 module.exports = {
-    getBooks: getBooksFromGoogleBooks
+    getBooks: getBooksFromGoogleBooks,
+    pickBookData
 }

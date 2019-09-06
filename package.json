@@ -10,25 +10,14 @@
     "start": "npm install && node app.js",
     "build": "npm install",
     "debug": "node --inspect=4000 app.js",
-    "test": "jest --bail",
-    "test:changed": "jest --onlyChanged",
-    "test:coverage": "jest --coverage",
-    "test:dev": "npm run test:changed -- --watch",
-    "test:debug": "node --inspect npm run test:dev -- --runInBand"
+    "test": "mocha './**/*.spec.js'"
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "chai": "^4.2.0",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
     "express": "^4.16.4",
-    "http-errors": "~1.6.3",
     "lodash": "^4.17.15",
-    "morgan": "~1.9.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test"
-    }
+    "mocha": "^6.2.0",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
   }
 }

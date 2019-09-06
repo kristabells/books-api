@@ -1,14 +1,13 @@
-const server = require('../../app');
+const server = require('../../../app');
 const request = require('supertest');
-const chai = require('chai');
 
-describe('GET /health', () => {
+describe('GET /api/health', () => {
     it('should respond with status UP', (done) => {
         request(server)
-            .get('/health')
+            .get('/api/health')
             .expect(200)
             .end((err, res) => {
-                chai.expect(res.body).to.include({status: 'UP'});
+                res.body.should.deepEqual({status: 'UP'});
             });
         done()
     });
